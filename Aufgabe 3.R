@@ -1,5 +1,8 @@
 # Funktionen-R-Skript 1 fuer Aufgabe 3
 
+# Paket laden:
+library(psych)
+
 # a)
 
 my_afunktion <- function(x){
@@ -22,13 +25,45 @@ my_afunktion <- function(x){
   # a,b,c,d,e nacheinander ausgegeben
 }
 
-### oder mit describe Funktion, benoetigt "psych" Paket
+### Alternative:
 
-my_afunktion2 <- function(x){
-  a <- describe(x,IQR = TRUE) 
+# descriptive_stats: Berechnet simple deskriptive Statistiken von einem Vektor/
+#                    einer Datenmenge.
+#
+# Eingabe: v (numerischer Vektor)
+#
+# Ausgabe: deskriptive Statistiken
+
+descriptive_stats <- function(v){
   
-  print(a) # berechnet Stichprobenumfang, Mittelwert, Median, Min., Max.,
-           # Standardabweichung, Interquartilsabstand, und Spannweite
-  }
+  # Abrruchkriterium:
+  stopifnot(is.numeric(v))
+  
+  # sortierte Daten speichern:
+  sv <- sort(v)
+  
+  # Berechne sinnvolle Deskriptive Statistiken:
+  stats <- c(length(v), max(v), min(v), abs(max(v) - min(v)),
+             mean(v), median(v), sv[ceiling(length(sv) * 0.75)], 
+             sv[ceiling(length(sv) * 0.25)], sd(v), mad(v),
+             as.numeric(names(sort(-table(age)))[1]), length(unique(v)))
+  
+  # Tabelle erstellen:
+  res <- data.frame(Statistics = c("Size", "Maximum", "Minimum", "Range",
+                                   "Mean", "Median", "0.75-Quartile", 
+                                   "0.25-Quartile", "SD",
+                                   "MAD", "Mode", "n-Distinct" 
+                                   ), Value = stats)
+  
+  # Tabelle printen:
+  print(res)
+}
+
+# Erstelle Beispiel:
+age <- round(rnorm(50, mean = 20, sd = 3))
+descriptive_stats(age)
 
 
+
+
+ 
