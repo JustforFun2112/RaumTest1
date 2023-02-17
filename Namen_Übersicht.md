@@ -1,4 +1,4 @@
-# Aufgabenstellung 3. Teilleistung Gruppenarbeit / GitHub
+# Wissenschaftliches Arbeiten, Aufgabe 3. Teilleistung Gruppenarbeit / GitHub
 
 
 # Namensübersicht:
