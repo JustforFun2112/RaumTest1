@@ -1,5 +1,5 @@
 ## Wissenschafliches Arbeiten WS2022/23 - Gruppe 11
-## Bearbeitet von Felix Hansch und ...
+## Bearbeitet von Felix Hansch und ....
 
 
 ## Aufgabe 1
