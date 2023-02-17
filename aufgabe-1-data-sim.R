@@ -1,4 +1,6 @@
-## Wissenschafliches Arbeiten 
+## Wissenschafliches Arbeiten WS2022/23 - Gruppe 11
+## Bearbeitet von Felix Hansch und ...
+
 
 ## Aufgabe 1
 
@@ -63,11 +65,19 @@ sim_data = function(N){
   }
   
   # 5 - Interesse an Programmieren Spalte:
-  
+  # Idee: Vielleicht Informatik > Data Science >> Statistik > Mathematik
+  coding_rating <- rep("ubk", N)
+    
   # 6 - Mathe LK Spalte: (Ja/ Nein)
+  # Idee: W'keit Mathe LK gehabt zu haben: 
+  # Mathematik > Statistik > Data Science == Informatik (aehnlich wie Spass an Mathe)
+  advanced_maths <- rep("ubk", N)
   
   # Zusammenstellen zu einem data.frame:
-  return(data.frame(id, age, subject, maths_rating))
+  return(data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths))
 }
+
+# set.seed()? Noch einen Seed setzen?
 sim_data(100)
 
+# Irgendwie noch als csv abspeichern...
