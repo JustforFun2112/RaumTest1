@@ -74,11 +74,16 @@ sim_data = function(N){
   # zufällig für alle Studienfächer
   advanced_maths <- sample(c(0,1), N, replace = TRUE)
   
+  # sollten die Splaiten anderen Namen vielleicht haben ?
   # Zusammenstellen zu einem data.frame:
   return(data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths))
 }
 
 # set.seed()? Noch einen Seed setzen?
-sim_data(100)
+ # wenn die Simulation wiederholbar sein muss, dann ja sollen wir Seed setzen, um sicherzustellen, dieselbe 
+ # Ergebnisse zu bekommen
+ # set.seed(123)
+# die Data-Frame csv abspeichern...
+write.csv(sim_data(100), file = "Aufgabe_1")
 
-# Irgendwie noch als csv abspeichern...
+
