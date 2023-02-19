@@ -1,5 +1,6 @@
 # Funktionen-R-Skript 1 fuer Aufgabe 3
 
+
 # Paket laden:
 library(psych)
  
@@ -89,17 +90,17 @@ library(DescTools)
 # Kreutabelle 
 
 kreuztabelle <- xtabs(~ d$Geschlecht + d$Studiengang , data=d) # x ist eine Spalte des Datensatzes und y eine andere Spalte ,data ist einfach der Datensatz
-ftable(kreuztabelle)   # Häufigkeiten
+ftable(kreuztabelle)   # HÃ¤ufigkeiten
 prop.table(kreuztabelle) # Prozente
 
-# Spearman Rangkorrelation und Rangkorrelation nach Kendall (ACHTUNG: nur für ordinale Daten verwenden)
+# Spearman Rangkorrelation und Rangkorrelation nach Kendall (ACHTUNG: nur fÃ¼r ordinale Daten verwenden)
 
 cor(x,y,method = "spearman") 
 
 cor(x,y,method = "kendall")
 
 # Phi koeffizient, Kontingenzkoeffizient und Cramers V
-# ACHTUNG Phi koeffizient nur bei dichotomen Variablen,also Variablen die nur zwei Merkmale annehmen können benutzen)
+# ACHTUNG Phi koeffizient nur bei dichotomen Variablen,also Variablen die nur zwei Merkmale annehmen kÃ¶nnen benutzen)
 
 Phi(x,y) # Phi- Koeffizient
 
