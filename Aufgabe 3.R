@@ -66,6 +66,92 @@ descriptive_stats(age)
 
 
 
+# b)
+library(MASS)
+categorical_var <- function(csvfile) {
+  # CSV-Datei in einen Dataframe einlesen
+  dataframe <- read.csv(csvfile)
+  
+  # Kategoriale Variablen im Dataframe suchen
+  categorical_vars <- c()
+  for (column in names(dataframe)) {
+    if (is.factor(dataframe[[column]]) || is.character(dataframe[[column]])) {
+      categorical_vars <- c(categorical_vars, column)
+        value_counts <- table(dataframe[[column]], useNA = "ifany")
+        value_percents <- prop.table(value_counts) * 100
+        
+        name_col <- unique(dataframe[[column]])
+        # Berechnung der Anzahl der fehlenden Werte und des Prozentsatzes
+        num_missing <- sum(is.na(categorical_vars))
+        percent_missing <- mean(is.na(categorical_vars)) * 100
+        
+        # Deskriptive Statistik:
+        cat(sprintf("spalte Name: %s \n",categorical_vars))
+        cat(sprintf("Anzahl von unique werten: %d\n", length(value_counts)))
+        cat(sprintf("Häufigkeit von %s: %s\n", name_col, value_counts))
+        cat(sprintf("Prozent von %s: %s %%\n", name_col, value_percents))
+        cat(sprintf("Relativ Häufigkeit von %s: %s\n", name_col, fractions(prop.table(value_counts))))
+        cat(sprintf("Anzahl von fehlenden werten: %d (%.2f%%)\n", num_missing, percent_missing))
+
+    }
+  }
+}
+
+
+
+
+
+# c) 
+
+install.packages("DescTools")
+
+library(DescTools)
+
+# Kreutabelle 
+
+kreuztabelle <- xtabs(~ x + y , data=...) # x ist eine Spalte des Datensatzes und y eine andere Spalte ,data ist einfach der Datensatz
+ftable(kreuztabelle)   # Häufigkeiten
+prop.table(kreuztabelle) # Prozente
+
+# Spearman Rangkorrelation und Rangkorrelation nach Kendall (ACHTUNG: nur für ordinale Daten verwenden)
+
+cor(x,y,method = "spearman") 
+
+cor(x,y,method = "kendall")
+
+# Phi koeffizient, Kontingenzkoeffizient und Cramers V
+# ACHTUNG Phi koeffizient nur bei dichotomen Variablen,also Variablen die nur zwei Merkmale annehmen können benutzen)
+
+Phi(x,y) # Phi- Koeffizient
+
+ContCoef(x,y) # Pearsons Kontingenzkoeffizient
+
+CramerV(x,y) # Cramer V
+
+
+
+
+## Funktion
+
+my_cfunction <- function(x,y){
+  
+   a <- cor(x,y,method = "spearman") 
+   
+   b <- cor(x,y,method = "kendall")
+   
+   c <- Phi(x,y)
+   
+   d <- ContCoef(x,y)
+   
+   e <- CramerV(x,y)
+   
+   print(c(a,b,c,d,e))
+   
+}
+
+
+# manas-aufgaben
+ 
 
 # c) 
 
@@ -116,3 +202,4 @@ my_cfunction <- function(x,y){
 }
 
 my_cfunction(x,y)
+
