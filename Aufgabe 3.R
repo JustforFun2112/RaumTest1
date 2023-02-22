@@ -66,7 +66,6 @@ descriptive_stats(age)
 
 
 # b)
-
 library(MASS)
 categorical_var <- function(csvfile) {
   # CSV-Datei in einen Dataframe einlesen
