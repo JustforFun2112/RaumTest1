@@ -75,7 +75,7 @@ library(DescTools)
 
 # Kreutabelle 
 
-kreuztabelle <- xtabs(~ d$Geschlecht + d$Studiengang , data=d) # x ist eine Spalte des Datensatzes und y eine andere Spalte ,data ist einfach der Datensatz
+kreuztabelle <- xtabs(~ x + y , data=...) # x ist eine Spalte des Datensatzes und y eine andere Spalte ,data ist einfach der Datensatz
 ftable(kreuztabelle)   # Häufigkeiten
 prop.table(kreuztabelle) # Prozente
 
