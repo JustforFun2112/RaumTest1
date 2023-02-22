@@ -3,7 +3,7 @@
 
 # Paket laden:
 library(psych)
- 
+
 # a)
 
 my_afunktion <- function(x){
@@ -17,7 +17,7 @@ my_afunktion <- function(x){
   
   e <- max(x,na.rm = TRUE)-min(x,na.rm = TRUE)
   
-  print(c(a,b,c,d,e)) # Min., Max., Quartile, Median, Mittelwert ausgeben
+  print(a) # Min., Max., Quartile, Median, Mittelwert ausgeben
   print(b) # Standardabweichung ausgeben
   print(c) # Varianz ausgeben
   print(d) # Interquartilsabstand
@@ -25,13 +25,8 @@ my_afunktion <- function(x){
   
   # a,b,c,d,e nacheinander ausgegeben
 }
-<<<<<<< Updated upstream
 
 ### Alternative:
-=======
-my_afunktion()
-### oder mit describe Funktion, benoetigt "psych" Paket
->>>>>>> Stashed changes
 
 # descriptive_stats: Berechnet simple deskriptive Statistiken von einem Vektor/
 #                    einer Datenmenge.
@@ -59,7 +54,7 @@ descriptive_stats <- function(v){
                                    "Mean", "Median", "0.75-Quartile", 
                                    "0.25-Quartile", "SD",
                                    "MAD", "Mode", "n-Distinct" 
-                                   ), Value = stats)
+  ), Value = stats)
   
   # Tabelle printen:
   print(res)
@@ -69,15 +64,6 @@ descriptive_stats <- function(v){
 age <- round(rnorm(50, mean = 20, sd = 3))
 descriptive_stats(age)
 
-
-<<<<<<< Updated upstream
-
-
- 
-=======
-  
-  
-# b)
 
 
 
