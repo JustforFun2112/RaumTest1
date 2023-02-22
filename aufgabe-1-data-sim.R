@@ -14,9 +14,12 @@
 #
 # Eingabe: N (Anzahl an zu simulierenden Beobachtungen)
 #
-# Ausgabe: data.frame 
+# Ausgabe: data.frame
 
-sim_data = function(N){
+set.seed(123)
+
+# füe showData = TRUE wird den Result(Dataframe) zurückgegeben
+sim_data = function(N, showData = "False"){
   # browser()
   
   # Abbruchkriterium:
@@ -76,14 +79,11 @@ sim_data = function(N){
   
   # sollten die Splaiten anderen Namen vielleicht haben ?
   # Zusammenstellen zu einem data.frame:
-  return(data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths))
+  data1 = data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths)
+  write.csv(data1, file = "Aufgabe_1")
+  
+  
+  #beim TRUE wird  die DataFrame zurückgegeben
+  if(showData == TRUE){ return(data1) }
+
 }
-
-# set.seed()? Noch einen Seed setzen?
- # wenn die Simulation wiederholbar sein muss, dann ja sollen wir Seed setzen, um sicherzustellen, dieselbe 
- # Ergebnisse zu bekommen
- # set.seed(123)
-# die Data-Frame csv abspeichern...
-write.csv(sim_data(100), file = "Aufgabe_1")
-
-
