@@ -203,3 +203,18 @@ my_cfunction <- function(x,y){
 
 my_cfunction(x,y)
 
+#e
+
+# eine Funktion, die als input einen numerischen Vektor x mit ordinal skalierten
+# Daten und, und die Daten in quantielbasiert kategorisiert zurückgibt.
+kategorie_x <- function(x){
+  
+  
+  # die Quantile von x berechnen:
+  quant <- quantile(x, probs = seq(0, 1, length.out = 4))
+  
+  
+  # definiere die Kategorie und sie zurückgeben:
+  return(cut(x, breaks = quant, labels = c("niedrig", "mittel", "hoch"), 
+             include.lowest = TRUE))
+}
