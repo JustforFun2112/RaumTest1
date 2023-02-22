@@ -18,7 +18,8 @@
 
 set.seed(123)
 
-sim_data = function(N){
+# füe showData = TRUE wird den Result(Dataframe) zurückgegeben
+sim_data = function(N, showData = "False"){
   # browser()
   
   # Abbruchkriterium:
@@ -81,9 +82,8 @@ sim_data = function(N){
   data1 = data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths)
   write.csv(data1, file = "Aufgabe_1")
   
- 
-  return(data1)
+  
+  #beim TRUE wird  die DataFrame zurückgegeben
+  if(showData == TRUE){ return(data1) }
+
 }
-
-
-
