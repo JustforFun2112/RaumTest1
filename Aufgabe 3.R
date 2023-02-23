@@ -67,6 +67,42 @@ descriptive_stats(age)
 
 
 
+# b)
+library(MASS)
+categorical_var <- function(csvfile) {
+  # CSV-Datei in einen Dataframe einlesen
+  dataframe <- read.csv(csvfile)
+  
+  # Kategoriale Variablen im Dataframe suchen
+  categorical_vars <- c()
+  for (column in names(dataframe)) {
+    if (is.factor(dataframe[[column]]) || is.character(dataframe[[column]])) {
+      categorical_vars <- c(categorical_vars, column)
+        value_counts <- table(dataframe[[column]], useNA = "ifany")
+        value_percents <- prop.table(value_counts) * 100
+        
+        name_col <- unique(dataframe[[column]])
+        # Berechnung der Anzahl der fehlenden Werte und des Prozentsatzes
+        num_missing <- sum(is.na(categorical_vars))
+        percent_missing <- mean(is.na(categorical_vars)) * 100
+        
+        # Deskriptive Statistik:
+        cat(sprintf("spalte Name: %s \n",categorical_vars))
+        cat(sprintf("Anzahl von unique werten: %d\n", length(value_counts)))
+        cat(sprintf("Häufigkeit von %s: %s\n", name_col, value_counts))
+        cat(sprintf("Prozent von %s: %s %%\n", name_col, value_percents))
+        cat(sprintf("Relativ Häufigkeit von %s: %s\n", name_col, fractions(prop.table(value_counts))))
+        cat(sprintf("Anzahl von fehlenden werten: %d (%.2f%%)\n", num_missing, percent_missing))
+
+    }
+  }
+}
+
+
+
+
+
+
 
 # c) 
 
@@ -119,6 +155,7 @@ my_cfunction <- function(x,y){
 my_cfunction(x,y)
 
 
+Justin-Aufgaben
 # f)
 
 # zur erkennung nutzen wir table um den gegebenen Vekotor in eine weitere numerische
@@ -130,3 +167,58 @@ my_plotfunction <- function(x){
   return(barplot(z))
 }
 
+
+
+
+
+# d)
+
+'''
+cohens_d: Cohens d-Effektgröße, ein standardisiertes Maß für den 
+Unterschied zwischen zwei Mittelwerten, 
+berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte Standardabweichung.
+'''
+
+bivariate_stats <- function(df, metric_col, dich_col) {
+  
+  # Dataframe filtern, um nur Beobachtungen mit nicht na Werten in beiden Spalten aufzunehmen. 
+  df <- df[complete.cases(df[, c(metric_col, dich_col)]), ]
+  
+  #  Der Mittelwert jeder dichotome Variable berechnen
+  means <- aggregate(df[[metric_col]], by=list(df[[dich_col]]), FUN=mean)
+  
+  # Cohen's d berechnen
+  d <- (means$x[1] - means$x[2]) / sd(df[[metric_col]])
+  
+  # Ausgabe Dataframe erstellen
+  output_df <- data.frame(
+    variable = c(metric_col, dich_col),
+    mean_0 = c(mean(df[df[[dich_col]] == 0, metric_col]), NA),
+    mean_1 = c(mean(df[df[[dich_col]] == 1, metric_col]), NA),
+    n_0 = c(sum(df[[dich_col]] == 0), NA),
+    n_1 = c(sum(df[[dich_col]] == 1), NA),
+    cohen_d = c(NA, d)
+  )
+  
+  return(output_df)
+}
+
+
+
+#e
+
+# eine Funktion, die als input einen numerischen Vektor x mit ordinal skalierten
+# Daten und, und die Daten in quantielbasiert kategorisiert zurückgibt.
+kategorie_x <- function(x){
+  
+  
+  # die Quantile von x berechnen:
+  quant <- quantile(x, probs = seq(0, 1, length.out = 4))
+  
+  
+  # definiere die Kategorie und sie zurückgeben:
+  return(cut(x, breaks = quant, labels = c("niedrig", "mittel", "hoch"), 
+             include.lowest = TRUE))
+
+}
+Aufgaben
