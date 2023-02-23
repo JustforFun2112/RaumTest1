@@ -4,7 +4,8 @@
 # Paket laden:
 library(psych)
 
-# a)
+# a) ...
+
 
 my_afunktion <- function(x){
   a <- summary(x) 
@@ -116,3 +117,16 @@ my_cfunction <- function(x,y){
 }
 
 my_cfunction(x,y)
+
+
+# f)
+
+
+my_plotfunction <- function(x){
+  z <- table(x)
+  
+  return(barplot(z))
+}
+
+
+my_plotfunction(mtcars$mpg)
