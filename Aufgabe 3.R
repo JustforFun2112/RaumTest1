@@ -203,3 +203,37 @@ my_cfunction <- function(x,y){
 
 my_cfunction(x,y)
 
+
+
+
+# d)
+
+'''
+cohens_d: Cohens d-Effektgröße, ein standardisiertes Maß für den 
+Unterschied zwischen zwei Mittelwerten, 
+berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte Standardabweichung.
+'''
+
+bivariate_stats <- function(df, metric_col, dich_col) {
+  
+  # Filter dataframe to include only observations with non-missing values in both columns
+  df <- df[complete.cases(df[, c(metric_col, dich_col)]), ]
+  
+  # Calculate means for each level of the dichotomous variable
+  means <- aggregate(df[[metric_col]], by=list(df[[dich_col]]), FUN=mean)
+  
+  # Calculate Cohen's d
+  d <- (means$x[1] - means$x[2]) / sd(df[[metric_col]])
+  
+  # Create output dataframe
+  output_df <- data.frame(
+    variable = c(metric_col, dich_col),
+    mean_0 = c(mean(df[df[[dich_col]] == 0, metric_col]), NA),
+    mean_1 = c(mean(df[df[[dich_col]] == 1, metric_col]), NA),
+    n_0 = c(sum(df[[dich_col]] == 0), NA),
+    n_1 = c(sum(df[[dich_col]] == 1), NA),
+    cohen_d = c(NA, d)
+  )
+  
+  return(output_df)
+}
