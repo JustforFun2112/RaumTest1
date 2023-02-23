@@ -155,22 +155,6 @@ my_cfunction <- function(x,y){
 my_cfunction(x,y)
 
 
-Justin-Aufgaben
-# f)
-
-# zur erkennung nutzen wir table um den gegebenen Vekotor in eine weitere numerische
-# Aufteilung zu unterteilen
-# dann wird nur noch als output der Gegebene Vektor in einen Graphen mit Balkendiagrammen erstellt.
-my_plotfunction <- function(x){
-  z <- table(x)
-  
-  return(barplot(z))
-}
-
-
-
-
-
 # d)
 
 '''
@@ -221,4 +205,14 @@ kategorie_x <- function(x){
              include.lowest = TRUE))
 
 }
-Aufgaben
+
+# f)
+
+# zur erkennung nutzen wir table um den gegebenen Vekotor in eine weitere numerische
+# Aufteilung zu unterteilen
+# dann wird nur noch als output der Gegebene Vektor in einen Graphen mit Balkendiagrammen erstellt.
+my_plotfunction <- function(x){
+  z <- table(x)
+  
+  return(barplot(z))
+}
