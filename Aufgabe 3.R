@@ -216,16 +216,16 @@ berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte
 
 bivariate_stats <- function(df, metric_col, dich_col) {
   
-  # Filter dataframe to include only observations with non-missing values in both columns
+  # Dataframe filtern, um nur Beobachtungen mit nicht na Werten in beiden Spalten aufzunehmen. 
   df <- df[complete.cases(df[, c(metric_col, dich_col)]), ]
   
-  # Calculate means for each level of the dichotomous variable
+  #  Der Mittelwert jeder dichotome Variable berechnen
   means <- aggregate(df[[metric_col]], by=list(df[[dich_col]]), FUN=mean)
   
-  # Calculate Cohen's d
+  # Cohen's d berechnen
   d <- (means$x[1] - means$x[2]) / sd(df[[metric_col]])
   
-  # Create output dataframe
+  # Ausgabe Dataframe erstellen
   output_df <- data.frame(
     variable = c(metric_col, dich_col),
     mean_0 = c(mean(df[df[[dich_col]] == 0, metric_col]), NA),
