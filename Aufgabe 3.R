@@ -153,6 +153,44 @@ my_cfunction <- function(x,y){
 
 my_cfunction(x,y)
 
+
+
+
+
+# d)
+
+'''
+cohens_d: Cohens d-Effektgröße, ein standardisiertes Maß für den 
+Unterschied zwischen zwei Mittelwerten, 
+berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte Standardabweichung.
+'''
+
+bivariate_stats <- function(df, metric_col, dich_col) {
+  
+  # Dataframe filtern, um nur Beobachtungen mit nicht na Werten in beiden Spalten aufzunehmen. 
+  df <- df[complete.cases(df[, c(metric_col, dich_col)]), ]
+  
+  #  Der Mittelwert jeder dichotome Variable berechnen
+  means <- aggregate(df[[metric_col]], by=list(df[[dich_col]]), FUN=mean)
+  
+  # Cohen's d berechnen
+  d <- (means$x[1] - means$x[2]) / sd(df[[metric_col]])
+  
+  # Ausgabe Dataframe erstellen
+  output_df <- data.frame(
+    variable = c(metric_col, dich_col),
+    mean_0 = c(mean(df[df[[dich_col]] == 0, metric_col]), NA),
+    mean_1 = c(mean(df[df[[dich_col]] == 1, metric_col]), NA),
+    n_0 = c(sum(df[[dich_col]] == 0), NA),
+    n_1 = c(sum(df[[dich_col]] == 1), NA),
+    cohen_d = c(NA, d)
+  )
+  
+  return(output_df)
+}
+
+
+
 #e
 
 # eine Funktion, die als input einen numerischen Vektor x mit ordinal skalierten
@@ -167,4 +205,5 @@ kategorie_x <- function(x){
   # definiere die Kategorie und sie zurückgeben:
   return(cut(x, breaks = quant, labels = c("niedrig", "mittel", "hoch"), 
              include.lowest = TRUE))
+
 }
