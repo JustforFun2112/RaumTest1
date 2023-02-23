@@ -101,57 +101,7 @@ categorical_var <- function(csvfile) {
 
 
 
-# c) 
 
-install.packages("DescTools")
-
-library(DescTools)
-
-# Kreutabelle 
-
-kreuztabelle <- xtabs(~ x + y , data=...) # x ist eine Spalte des Datensatzes und y eine andere Spalte ,data ist einfach der Datensatz
-ftable(kreuztabelle)   # Häufigkeiten
-prop.table(kreuztabelle) # Prozente
-
-# Spearman Rangkorrelation und Rangkorrelation nach Kendall (ACHTUNG: nur für ordinale Daten verwenden)
-
-cor(x,y,method = "spearman") 
-
-cor(x,y,method = "kendall")
-
-# Phi koeffizient, Kontingenzkoeffizient und Cramers V
-# ACHTUNG Phi koeffizient nur bei dichotomen Variablen,also Variablen die nur zwei Merkmale annehmen können benutzen)
-
-Phi(x,y) # Phi- Koeffizient
-
-ContCoef(x,y) # Pearsons Kontingenzkoeffizient
-
-CramerV(x,y) # Cramer V
-
-
-
-
-## Funktion
-
-my_cfunction <- function(x,y){
-  
-   a <- cor(x,y,method = "spearman") 
-   
-   b <- cor(x,y,method = "kendall")
-   
-   c <- Phi(x,y)
-   
-   d <- ContCoef(x,y)
-   
-   e <- CramerV(x,y)
-   
-   print(c(a,b,c,d,e))
-   
-}
-
-
-# manas-aufgaben
- 
 
 # c) 
 
@@ -206,6 +156,7 @@ my_cfunction(x,y)
 
 
 
+
 # d)
 
 '''
@@ -236,4 +187,23 @@ bivariate_stats <- function(df, metric_col, dich_col) {
   )
   
   return(output_df)
+}
+
+
+
+#e
+
+# eine Funktion, die als input einen numerischen Vektor x mit ordinal skalierten
+# Daten und, und die Daten in quantielbasiert kategorisiert zurückgibt.
+kategorie_x <- function(x){
+  
+  
+  # die Quantile von x berechnen:
+  quant <- quantile(x, probs = seq(0, 1, length.out = 4))
+  
+  
+  # definiere die Kategorie und sie zurückgeben:
+  return(cut(x, breaks = quant, labels = c("niedrig", "mittel", "hoch"), 
+             include.lowest = TRUE))
+
 }
