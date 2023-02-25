@@ -19,8 +19,7 @@ library(writexl)
 #
 # Ausgabe: generierter Datensatz als data.frame in .R und speichern als .csv
 
-sim_data = function(N, showData = "False"){
-  # browser()
+sim_data = function(N, showData = "FALSE"){
   
   # Abbruchkriterium:
   stopifnot(is.numeric(N))
