@@ -1,0 +1,101 @@
+"id","age","subject","maths_rating","coding_rating","advanced_maths"
+1,24,"Informatik",7,6,1
+2,24,"Statistik",6,6,0
+3,26,"Data Science",2,6,0
+4,27,"Data Science",7,7,1
+5,26,"Informatik",1,1,1
+6,24,"Informatik",5,7,0
+7,22,"Statistik",4,2,1
+8,26,"Statistik",7,5,1
+9,26,"Informatik",1,2,1
+10,25,"Informatik",7,7,1
+11,27,"Informatik",6,6,1
+12,26,"Statistik",5,2,1
+13,26,"Informatik",5,3,1
+14,26,"Statistik",6,3,1
+15,26,"Data Science",3,7,1
+16,25,"Data Science",1,5,0
+17,27,"Data Science",5,7,1
+18,27,"Statistik",1,4,1
+19,29,"Mathematik",4,7,1
+20,24,"Mathematik",6,2,1
+21,25,"Informatik",6,2,1
+22,27,"Mathematik",5,5,1
+23,25,"Statistik",6,7,1
+24,22,"Statistik",7,6,1
+25,27,"Data Science",7,3,1
+26,25,"Data Science",2,7,1
+27,24,"Statistik",7,6,1
+28,25,"Data Science",4,3,1
+29,25,"Mathematik",5,3,1
+30,24,"Informatik",6,7,1
+31,25,"Statistik",6,7,1
+32,23,"Statistik",5,1,0
+33,24,"Mathematik",6,7,0
+34,27,"Data Science",2,6,1
+35,27,"Data Science",3,6,1
+36,24,"Data Science",5,1,1
+37,24,"Informatik",1,6,1
+38,26,"Statistik",5,4,0
+39,28,"Informatik",1,7,0
+40,24,"Statistik",6,7,1
+41,26,"Statistik",3,4,0
+42,24,"Mathematik",1,6,1
+43,21,"Statistik",4,5,1
+44,24,"Data Science",2,2,1
+45,24,"Data Science",4,6,1
+46,23,"Statistik",6,6,1
+47,24,"Statistik",7,4,0
+48,27,"Informatik",6,5,1
+49,27,"Informatik",2,7,0
+50,27,"Statistik",5,4,1
+51,23,"Statistik",6,7,1
+52,25,"Data Science",4,6,1
+53,27,"Informatik",4,4,1
+54,26,"Statistik",2,2,1
+55,27,"Informatik",5,7,1
+56,26,"Data Science",6,6,1
+57,23,"Data Science",4,7,1
+58,23,"Statistik",6,6,1
+59,27,"Data Science",6,1,1
+60,26,"Data Science",4,5,1
+61,24,"Statistik",7,3,1
+62,27,"Informatik",7,7,0
+63,24,"Informatik",4,5,1
+64,24,"Data Science",4,6,1
+65,24,"Mathematik",6,2,1
+66,24,"Statistik",4,7,1
+67,26,"Informatik",7,6,1
+68,23,"Mathematik",6,5,1
+69,27,"Informatik",6,6,0
+70,25,"Statistik",5,6,1
+71,22,"Informatik",5,3,0
+72,22,"Statistik",5,2,1
+73,24,"Informatik",5,5,1
+74,26,"Data Science",4,1,1
+75,22,"Statistik",7,4,1
+76,29,"Statistik",6,1,1
+77,26,"Data Science",5,5,1
+78,23,"Informatik",2,6,1
+79,24,"Data Science",7,5,0
+80,26,"Data Science",7,6,1
+81,25,"Data Science",6,1,1
+82,26,"Informatik",6,7,1
+83,27,"Statistik",2,3,1
+84,23,"Statistik",7,5,1
+85,22,"Informatik",5,7,1
+86,22,"Informatik",5,5,1
+87,20,"Mathematik",4,5,1
+88,24,"Informatik",4,7,0
+89,25,"Statistik",2,7,1
+90,25,"Statistik",7,5,0
+91,24,"Mathematik",5,7,1
+92,29,"Statistik",1,1,1
+93,22,"Informatik",7,7,1
+94,24,"Informatik",4,6,0
+95,21,"Statistik",5,2,1
+96,23,"Mathematik",7,5,1
+97,27,"Informatik",4,5,1
+98,26,"Data Science",5,2,0
+99,23,"Data Science",5,5,1
+100,22,"Data Science",2,5,1
