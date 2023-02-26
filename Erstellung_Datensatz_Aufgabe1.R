@@ -2,9 +2,6 @@
 ## Erstellung des Datensatzes:
 ## Aufgabe 1)
 
-# Paket um Excel Datei tu erstellen:
-# install.packages("writexl")
-library(writexl)
 
 # sim_data: Funktion die Datensatz simulieren soll:
 #           - 1. Spalte: ID
@@ -91,8 +88,8 @@ sim_data = function(N, showData = "FALSE"){
   
   # Zusammenstellen zu einem data.frame:
   data <- data.frame(id, age, subject, maths_rating, coding_rating, advanced_maths)
-  write_xlsx(data, "Datensatz_Aufgabe1.xlsx")
-
+  write.csv(data, "Datensatz-Aufgabe2", row.names = FALSE)
+  
   # gebe data.frame auch in R zurueck:
   if(showData == TRUE){return(data)}
 }
