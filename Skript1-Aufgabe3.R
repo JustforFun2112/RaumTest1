@@ -1,33 +1,12 @@
-# Funktionen-R-Skript 1 fuer Aufgabe 3
-
+## Wissenschafliches Arbeiten WS2022/23 - Gruppe 11
+## Funktionen-R-Skript 1 fuer Aufgabe 3
+## Erstellung der Funktionen zur Auswertung des Datensatzes:
 
 # Paket laden:
 library(psych)
 
-# a) ...
 
-
-my_afunktion <- function(x){
-  a <- summary(x) 
-  
-  b <- sd(x,na.rm = TRUE) 
-  
-  c <- var(x,na.rm = TRUE)
-  
-  d <- IQR(x,na.rm = TRUE)
-  
-  e <- max(x,na.rm = TRUE)-min(x,na.rm = TRUE)
-  
-  print(a) # Min., Max., Quartile, Median, Mittelwert ausgeben
-  print(b) # Standardabweichung ausgeben
-  print(c) # Varianz ausgeben
-  print(d) # Interquartilsabstand
-  print(e) # Spannweite
-  
-  # a,b,c,d,e nacheinander ausgegeben
-}
-
-### Alternative:
+# a)
 
 # descriptive_stats: Berechnet simple deskriptive Statistiken von einem Vektor/
 #                    einer Datenmenge.
@@ -48,7 +27,7 @@ descriptive_stats <- function(v){
   stats <- c(length(v), max(v), min(v), abs(max(v) - min(v)),
              mean(v), median(v), sv[ceiling(length(sv) * 0.75)], 
              sv[ceiling(length(sv) * 0.25)], sd(v), mad(v),
-             as.numeric(names(sort(-table(age)))[1]), length(unique(v)))
+             Mode(v), length(unique(v)))
   
   # Tabelle erstellen:
   res <- data.frame(Statistics = c("Size", "Maximum", "Minimum", "Range",
@@ -60,11 +39,6 @@ descriptive_stats <- function(v){
   # Tabelle printen:
   print(res)
 }
-
-# Erstelle Beispiel:
-age <- round(rnorm(50, mean = 20, sd = 3))
-descriptive_stats(age)
-
 
 
 # b)
