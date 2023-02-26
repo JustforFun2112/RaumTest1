@@ -56,3 +56,61 @@ categorical_var("C:\...")
 #4    Statistik         30      30                0.30              0          0
 
 
+
+kreuztabelle <- xtabs(~ x_row + y_column, Datensatz_Aufgabe2) 
+
+
+
+ftable(kreuztabelle) 
+
+###################
+#       y_column Data Science Informatik Mathematik Statistik
+# x_row                                                      
+# 0                         7          4          2         5
+# 1                        25         22          6        29
+###################
+
+
+####   0 = nein, 1 = ja,
+## Es besteht ein Zusammenhang Zwischen all diesen
+## Mathematischen/ Informatik- Studiengängen und der Wahl des Mathe-LK's
+
+
+
+prop.table(kreuztabelle) 
+
+###################
+# x_row Data Science Informatik Mathematik Statistik
+#     0         0.07       0.04       0.02      0.05
+#     1         0.25       0.22       0.06      0.29
+###################
+
+
+## deutlich wird es and er Aufteilung da 82% aller Befragten Studenten den Mathe-LK
+## belegt haben
+
+## um aber weitere Deutungen zu erheben, muesste man einen Studiengan nehmen, der nicht 
+## mathematisch angelehnt ist, z.B. Sprachwissenschaften oder Kunst und Musik.
+
+my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$maths_rating)
+#[1] -0.1814017 -0.1408809  0.4852707  0.4365810  0.1981109
+
+## nach Def. der einzelnen Werte zeigt sich das es zwischen dem Interesse an Programmierung und Mathematik 
+## nur minimale Zusammenhänge gibt, diese sind leider nicht stark genug um eine 
+## eindeutige Aussage zu treffen.
+
+
+my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$advanced_maths)
+#[1] 0.10716072 0.09518088 0.24725881 0.24003030 0.24725881
+
+
+## Doch zeigt sich das bei Interesse an Programmierung, dass vermehrt auch den Mathe-LK
+## hatten 
+
+
+my_cfunction(Datensatz_Aufgabe2$maths_rating,Datensatz_Aufgabe2$advanced_maths)
+#[1] -0.1288486 -0.1130193  0.2290166  0.2232372  0.2290166
+
+## das Gleiche gilt leider nicht für das Interesse an Mathematik im vergleich zur 
+## LK wahl, denn hier deutet es auf keinen eindeutigen Zusammenhang sondern auf einen 
+## darauf das es in keiner Relation zueinander Steht.
