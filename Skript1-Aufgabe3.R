@@ -1,12 +1,18 @@
+
+# Funktionen-R-Skript 1 fuer Aufgabe 3
+
+=======
 ## Wissenschafliches Arbeiten WS2022/23 - Gruppe 11
 ## Funktionen-R-Skript 1 fuer Aufgabe 3
 ## Erstellung der Funktionen zur Auswertung des Datensatzes:
+
 
 # Paket laden:
 library(psych)
 
 
 # a)
+
 
 # descriptive_stats: Berechnet simple deskriptive Statistiken von einem Vektor/
 #                    einer Datenmenge.
@@ -27,8 +33,7 @@ descriptive_stats <- function(v){
   stats <- c(length(v), max(v), min(v), abs(max(v) - min(v)),
              mean(v), median(v), sv[ceiling(length(sv) * 0.75)], 
              sv[ceiling(length(sv) * 0.25)], sd(v), mad(v),
-             Mode(v), length(unique(v)))
-  
+
   # Tabelle erstellen:
   res <- data.frame(Statistics = c("Size", "Maximum", "Minimum", "Range",
                                    "Mean", "Median", "0.75-Quartile", 
@@ -43,6 +48,7 @@ descriptive_stats <- function(v){
 
 # b)
 library(MASS)
+
 categorical_var <- function(csvfile) {
   # CSV-Datei in einen Dataframe einlesen
   dataframe <- read.csv(csvfile)
@@ -54,8 +60,9 @@ categorical_var <- function(csvfile) {
       categorical_vars <- c(categorical_vars, column)
         value_counts <- table(dataframe[[column]], useNA = "ifany")
         value_percents <- prop.table(value_counts) * 100
-        
-        name_col <- unique(dataframe[[column]])
+
+        name_col <- names(value_counts)
+
         # Berechnung der Anzahl der fehlenden Werte und des Prozentsatzes
         num_missing <- sum(is.na(categorical_vars))
         percent_missing <- mean(is.na(categorical_vars)) * 100
@@ -68,9 +75,15 @@ categorical_var <- function(csvfile) {
         cat(sprintf("Relativ Häufigkeit von %s: %s\n", name_col, fractions(prop.table(value_counts))))
         cat(sprintf("Anzahl von fehlenden werten: %d (%.2f%%)\n", num_missing, percent_missing))
 
+
+    desk_stats <- data.frame(name_col,unique(value_counts),unique(value_percents),unique(fractions(prop.table(value_counts))),num_missing, percent_missing)
+    colnames(desk_stats)  <- c("Name", "Häufigkeit", "Prozent", "Relative Häufigkeit", "fehlende Werte", "in prozent" )
+    print(desk_stats)
+
     }
   }
 }
+
 
 
 
@@ -127,6 +140,7 @@ my_cfunction <- function(x,y){
 my_cfunction(x,y)
 
 
+
 # d)
 
 '''
@@ -161,7 +175,9 @@ bivariate_stats <- function(df, metric_col, dich_col) {
 
 
 
+
 # e)
+
 
 # eine Funktion, die als input einen numerischen Vektor x mit ordinal skalierten
 # Daten und, und die Daten in quantielbasiert kategorisiert zurückgibt.
@@ -188,3 +204,4 @@ my_plotfunction <- function(x){
   
   return(barplot(z))
 }
+
