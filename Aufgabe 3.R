@@ -68,6 +68,7 @@ descriptive_stats(age)
 
 # b)
 library(MASS)
+
 categorical_var <- function(csvfile) {
   # CSV-Datei in einen Dataframe einlesen
   dataframe <- read.csv(csvfile)
@@ -79,8 +80,7 @@ categorical_var <- function(csvfile) {
       categorical_vars <- c(categorical_vars, column)
         value_counts <- table(dataframe[[column]], useNA = "ifany")
         value_percents <- prop.table(value_counts) * 100
-        
-        name_col <- unique(dataframe[[column]])
+        name_col <- names(value_counts)
         # Berechnung der Anzahl der fehlenden Werte und des Prozentsatzes
         num_missing <- sum(is.na(categorical_vars))
         percent_missing <- mean(is.na(categorical_vars)) * 100
@@ -93,9 +93,13 @@ categorical_var <- function(csvfile) {
         cat(sprintf("Relativ Häufigkeit von %s: %s\n", name_col, fractions(prop.table(value_counts))))
         cat(sprintf("Anzahl von fehlenden werten: %d (%.2f%%)\n", num_missing, percent_missing))
 
+    desk_stats <- data.frame(name_col,unique(value_counts),unique(value_percents),unique(fractions(prop.table(value_counts))),num_missing, percent_missing)
+    colnames(desk_stats)  <- c("Name", "Häufigkeit", "Prozent", "Relative Häufigkeit", "fehlende Werte", "in prozent" )
+    print(desk_stats)
     }
   }
 }
+
 
 
 
