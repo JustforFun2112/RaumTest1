@@ -3,7 +3,7 @@
 
 library(readr)
 
-Datensatz <- read_excel("C:\...")
+Datensatz <- read.csv("C:\...")
 
 
 
