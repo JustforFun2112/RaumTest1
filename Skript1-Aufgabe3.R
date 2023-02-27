@@ -1,7 +1,3 @@
-
-# Funktionen-R-Skript 1 fuer Aufgabe 3
-
-=======
 ## Wissenschafliches Arbeiten WS2022/23 - Gruppe 11
 ## Funktionen-R-Skript 1 fuer Aufgabe 3
 ## Erstellung der Funktionen zur Auswertung des Datensatzes:
@@ -12,7 +8,6 @@ library(psych)
 
 
 # a)
-
 
 # descriptive_stats: Berechnet simple deskriptive Statistiken von einem Vektor/
 #                    einer Datenmenge.
