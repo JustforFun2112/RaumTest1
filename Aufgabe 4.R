@@ -3,7 +3,7 @@
 
 library(readr)
 
-Datensatz <- read_excel("C:\...")
+Datensatz <- read.csv("C:\...")
 
 
 
@@ -56,6 +56,12 @@ categorical_var("C:\...")
 #4    Statistik         30      30                0.30              0          0
 
 
+
+
+
+
+
+# Deskriptive Statistiken mit funktionen aus 3 c)
 
 kreuztabelle <- xtabs(~ x_row + y_column, Datensatz_Aufgabe2) 
 
@@ -114,3 +120,16 @@ my_cfunction(Datensatz_Aufgabe2$maths_rating,Datensatz_Aufgabe2$advanced_maths)
 ## das Gleiche gilt leider nicht für das Interesse an Mathematik im vergleich zur 
 ## LK wahl, denn hier deutet es auf keinen eindeutigen Zusammenhang sondern auf einen 
 ## darauf das es in keiner Relation zueinander Steht.
+
+
+
+
+
+# bivariate Statistiken mit funktionen aus 3 d)
+data <- read.csv("C:\...")
+
+bivariate_stats(data,6,7)
+
+#variable   mean_0   mean_1 n_0 n_1     cohen_d
+#1        6 3.404255 3.471698  47  53          NA
+#2        7       NA       NA  NA  NA -0.03287552

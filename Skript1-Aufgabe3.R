@@ -138,11 +138,11 @@ my_cfunction(x,y)
 
 # d)
 
-'''
-cohens_d: Cohens d-Effektgröße, ein standardisiertes Maß für den 
-Unterschied zwischen zwei Mittelwerten, 
-berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte Standardabweichung.
-'''
+
+#cohens_d: Cohens d-Effektgröße, ein standardisiertes Maß für den 
+#Unterschied zwischen zwei Mittelwerten, 
+#berechnet als die Differenz zwischen den Mittelwerten geteilt durch die gepoolte Standardabweichung.
+
 
 bivariate_stats <- function(df, metric_col, dich_col) {
   
