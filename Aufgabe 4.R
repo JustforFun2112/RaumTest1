@@ -56,3 +56,15 @@ categorical_var("C:\...")
 #4    Statistik         30      30                0.30              0          0
 
 
+
+
+
+# bivariate Statistiken mit funktionen aus 3 d)
+data <- read.csv("C:\...")
+
+bivariate_stats(data,6,7)
+
+#variable   mean_0   mean_1 n_0 n_1     cohen_d
+#1        6 3.404255 3.471698  47  53          NA
+#2        7       NA       NA  NA  NA -0.03287552
+
