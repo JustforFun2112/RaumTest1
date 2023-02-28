@@ -28,6 +28,7 @@ descriptive_stats <- function(v){
   stats <- c(length(v), max(v), min(v), abs(max(v) - min(v)),
              mean(v), median(v), sv[ceiling(length(sv) * 0.75)], 
              sv[ceiling(length(sv) * 0.25)], sd(v), mad(v),
+             Mode(v), length(unique(v)))
 
   # Tabelle erstellen:
   res <- data.frame(Statistics = c("Size", "Maximum", "Minimum", "Range",
