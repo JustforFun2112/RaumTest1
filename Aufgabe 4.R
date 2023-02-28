@@ -130,12 +130,13 @@ my_cfunction(INT_Mathe,Mathe_LK)
 
 # bivariate Statistiken mit funktionen aus 3 d)
 
-bivariate_stats(Datensatz_Aufgabe2,6,7)
+bivariate_stats(Datensatz_Aufgabe2,2,6)
 
-#variable   mean_0   mean_1 n_0 n_1     cohen_d
-#1        6 3.404255 3.471698  47  53          NA
-#2        7       NA       NA  NA  NA -0.03287552
+#   variable   mean_0   mean_1 n_0 n_1   cohen_d
+# 1        2 25.05263 24.81481  19  81        NA
+# 2        6       NA       NA  NA  NA 0.1268369
 
+## 
 
 
 # quantielbasierte Daten e)
