@@ -136,7 +136,11 @@ bivariate_stats(Datensatz_Aufgabe2,2,6)
 # 1        2 25.05263 24.81481  19  81        NA
 # 2        6       NA       NA  NA  NA 0.1268369
 
-## 
+#Die Ausgabe zeigt zwei Zeilen, eine für jede Variable. Die Variablenspalte gibt an,
+#welche Variable jede Zeile darstellt. Die Spalten mean_0 und mean_1 zeigen die Mittelwerte 
+#der metrischen Variable (Alter) für jedes Niveau der dichotomen Variable (Mathe LK = 0 oder 1).
+#Die Spalten n_0 und n_1 zeigen die Anzahl der Beobachtungen in jeder Gruppe. Die Spalte cohen_d schließlich zeigt die Effektgröße,
+#gemessen durch Cohen's d, das eine standardisierte Differenz zwischen den Mittelwerten der beiden Gruppen ist.
 
 
 # quantielbasierte Daten e)
