@@ -3,14 +3,17 @@
 
 library(readr)
 
-Datensatz <- read.csv("C:\...")
+Datensatz_Aufgabe2 <- read.csv("C:\...") # Einlesen vom Datensatz aus Aufg.2
 
-
-
+age <- Datensatz_Aufgabe2$age
+Studiengang <- Datensatz_Aufgabe2$subject
+INT_Mathe <- Datensatz_Aufgabe2$maths_rating
+INT_Prog <- Datensatz_Aufgabe2$coding_rating
+Mathe_LK <- Datensatz_Aufgabe2$advanced_maths
 
 # Deskriptive Statistiken mit funktionen aus 3 a)
 
-age <- Datensatz$age
+age <- Datensatz_Aufgabe2$age
 
 descriptive_stats(age)
 
@@ -33,7 +36,7 @@ descriptive_stats(age)
 
 library(MASS)
 
-categorical_var("C:\...")
+categorical_var(Datensatz_Aufgabe2)  # Path bezogene Funktion, auslese von Datensatz_Aufgabe2
 #spalte Name: subject 
 #Anzahl von unique werten: 4
 #Häufigkeit von Data Science: 37
@@ -98,7 +101,7 @@ prop.table(kreuztabelle)
 ## um aber weitere Deutungen zu erheben, muesste man einen Studiengan nehmen, der nicht 
 ## mathematisch angelehnt ist, z.B. Sprachwissenschaften oder Kunst und Musik.
 
-my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$maths_rating)
+my_cfunction(INT_Prog,INT_Mathe)
 #[1] -0.1814017 -0.1408809  0.4852707  0.4365810  0.1981109
 
 ## nach Def. der einzelnen Werte zeigt sich das es zwischen dem Interesse an Programmierung und Mathematik 
@@ -106,7 +109,7 @@ my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$maths_rating)
 ## eindeutige Aussage zu treffen.
 
 
-my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$advanced_maths)
+my_cfunction(INT_Prog,Mathe_LK)
 #[1] 0.10716072 0.09518088 0.24725881 0.24003030 0.24725881
 
 
@@ -114,7 +117,7 @@ my_cfunction(Datensatz_Aufgabe2$coding_rating,Datensatz_Aufgabe2$advanced_maths)
 ## hatten 
 
 
-my_cfunction(Datensatz_Aufgabe2$maths_rating,Datensatz_Aufgabe2$advanced_maths)
+my_cfunction(INT_Mathe,Mathe_LK)
 #[1] -0.1288486 -0.1130193  0.2290166  0.2232372  0.2290166
 
 ## das Gleiche gilt leider nicht für das Interesse an Mathematik im vergleich zur 
@@ -126,10 +129,45 @@ my_cfunction(Datensatz_Aufgabe2$maths_rating,Datensatz_Aufgabe2$advanced_maths)
 
 
 # bivariate Statistiken mit funktionen aus 3 d)
-data <- read.csv("C:\...")
 
-bivariate_stats(data,6,7)
+bivariate_stats(Datensatz_Aufgabe2,6,7)
 
 #variable   mean_0   mean_1 n_0 n_1     cohen_d
 #1        6 3.404255 3.471698  47  53          NA
 #2        7       NA       NA  NA  NA -0.03287552
+
+
+
+# quantielbasierte Daten 
+
+O <- data.frame(age,INT_Mathe,INT_Prog)
+
+apply(O,2, kategorie_x)
+#      age       INT_Mathe INT_Prog 
+# [1,] "niedrig" "hoch"    "mittel" 
+# [2,] "niedrig" "mittel"  "mittel" 
+# [3,] "mittel"  "niedrig" "mittel" 
+# [4,] "hoch"    "hoch"    "hoch"   
+# [5,] "mittel"  "niedrig" "niedrig"
+# [6,] "niedrig" "mittel"  "hoch"   
+# [7,] "niedrig" "niedrig" "niedrig"
+# [8,] "mittel"  "hoch"    "mittel" 
+# [9,] "mittel"  "niedrig" "niedrig"
+
+# Visuelle Darstellung dieser Daten
+
+par(mfrow = c(1,1))
+my_plotfunction(Studiengang, main="Studiengang")
+
+par(mfrow = c(1,3))
+
+my_plotfunction(age,main = "age")
+my_plotfunction(INT_Mathe, main = "INT_Mathe")
+my_plotfunction(INT_Prog,main= "INT_Prog")
+
+# es wird sichtbar dass hauptsaechlich juengere Studierende vorhanden sind,
+# im Allgemeinen ein durchschnittliches Interesse and Mathematik und Programmierung 
+# ueberwiegt.
+# Und die Programmierung doch von mehr Studierenden als Interesant gedeutet 
+# wurde als Mathematik
+
