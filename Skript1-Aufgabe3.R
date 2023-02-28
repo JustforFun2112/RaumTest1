@@ -195,9 +195,16 @@ kategorie_x <- function(x){
 # zur erkennung nutzen wir table um den gegebenen Vekotor in eine weitere numerische
 # Aufteilung zu unterteilen
 # dann wird nur noch als output der Gegebene Vektor in einen Graphen mit Balkendiagrammen erstellt.
-my_plotfunction <- function(x){
-  z <- table(x)
+my_plotfunction <- function(x,main= FALSE){
+  if(!is.character(x)==TRUE){        # um die Variable des Subjects einzubetten
+    y <- kategorie_x(x)              #
+    z <- table(y)                    #
+    
+    return(barplot(z,main = main))}
   
-  return(barplot(z))
+  else{
+    z <- table(x)
+    return(barplot(z,main = main))
+  }
 }
 
