@@ -3,7 +3,7 @@
 
 library(readr)
 
-Datensatz_Aufgabe2 <- read.csv("C:\...") # Einlesen vom Datensatz aus Aufg.2
+# Datensatz_Aufgabe2 <- read.csv("C:\...")  Einlesen vom Datensatz aus Aufg.2
 
 age <- Datensatz_Aufgabe2$age
 Studiengang <- Datensatz_Aufgabe2$subject
@@ -138,7 +138,7 @@ bivariate_stats(Datensatz_Aufgabe2,6,7)
 
 
 
-# quantielbasierte Daten 
+# quantielbasierte Daten e)
 
 O <- data.frame(age,INT_Mathe,INT_Prog)
 
