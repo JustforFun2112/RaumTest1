@@ -36,7 +36,7 @@ descriptive_stats(age)
 
 library(MASS)
 
-categorical_var("C:\...")  # Path bezogene Funktion, auslese von Datensatz_Aufgabe2
+categorical_var(Datensatz_Aufgabe2)  # Path bezogene Funktion, auslese von Datensatz_Aufgabe2
 #spalte Name: subject 
 #Anzahl von unique werten: 4
 #Häufigkeit von Data Science: 37
